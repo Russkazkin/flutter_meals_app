@@ -5,7 +5,7 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView(
       children: [
-
+        
       ],
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 200,
