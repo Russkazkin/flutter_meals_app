@@ -9,9 +9,13 @@ class Category extends StatelessWidget {
   Category({this.id, this.title, this.color});
 
   void selectCategory(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-      return CategoryMeals(id: id, title: title,);
-    },),);
+    Navigator.of(context).pushNamed(
+      '/category-meals',
+      arguments: {
+        'id': id,
+        'title': title,
+      },
+    );
   }
 
   @override
@@ -22,7 +26,10 @@ class Category extends StatelessWidget {
       borderRadius: BorderRadius.circular(3),
       child: Container(
         padding: const EdgeInsets.all(15),
-        child: Text(title, style: Theme.of(context).textTheme.headline6,),
+        child: Text(
+          title,
+          style: Theme.of(context).textTheme.headline6,
+        ),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [color.withOpacity(0.7), color],
