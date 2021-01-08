@@ -12,11 +12,9 @@ class CategoryMeals extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Center(
-        child: Text(
-          'The recipes for the $title category!',
-        ),
-      ),
+      body: ListView.builder(itemBuilder: (context, index) {
+        return
+      }, itemCount: ,),
     );
   }
 }
