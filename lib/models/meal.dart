@@ -5,7 +5,7 @@ import '../enums/Complexity.dart';
 
 class Meal {
   final String id;
-  final List<String> categoryIds;
+  final List<String> categories;
   final String title;
   final String imageUrl;
   final List<String> ingredients;
@@ -18,9 +18,9 @@ class Meal {
   final bool isVegan;
   final bool isVegetarian;
 
-  Meal({
+  const Meal({
     @required this.id,
-    @required this.categoryIds,
+    @required this.categories,
     @required this.title,
     @required this.imageUrl,
     @required this.ingredients,
