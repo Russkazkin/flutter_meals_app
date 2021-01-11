@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../screens/meal_detail.dart';
 import '../../enums/Affordability.dart';
 import '../../enums/Complexity.dart';
 
 class Meal extends StatelessWidget {
+  final String id;
   final String title;
   final String imageUrl;
   final int duration;
@@ -11,6 +13,7 @@ class Meal extends StatelessWidget {
   final Affordability affordability;
 
   Meal({
+    @required this.id,
     @required this.title,
     @required this.imageUrl,
     @required this.duration,
@@ -32,7 +35,7 @@ class Meal extends StatelessWidget {
   }
 
   String get affordabilityText {
-    switch(affordability) {
+    switch (affordability) {
       case Affordability.Affordable:
         return 'Affordable';
       case Affordability.Luxurious:
@@ -44,12 +47,17 @@ class Meal extends StatelessWidget {
     }
   }
 
-  void selectMeal() {}
+  void selectMeal(BuildContext context) {
+    Navigator.of(context).pushNamed(
+      MealDetail.route,
+      arguments: id,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: selectMeal,
+      onTap: () => selectMeal(context),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),
