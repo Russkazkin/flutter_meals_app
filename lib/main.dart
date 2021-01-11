@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
         CategoryMeals.route: (context) => CategoryMeals(),
         MealDetail.route: (context) => MealDetail(),
       },
+      onUnknownRoute: (settings) => MaterialPageRoute(builder: (context) => Categories()),
     );
   }
 }
