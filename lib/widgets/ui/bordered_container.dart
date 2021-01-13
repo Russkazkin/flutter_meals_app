@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class BorderedContainer extends StatelessWidget {
   final Widget child;
+  final double height;
+  final double width;
 
-  BorderedContainer({this.child});
+  BorderedContainer({@required this.child, @required this.height, @required this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +16,8 @@ class BorderedContainer extends StatelessWidget {
             color: Colors.grey,
           ),
           borderRadius: BorderRadius.circular(5)),
-      height: 150,
-      width: 300,
+      height: height,
+      width: width,
       margin: EdgeInsets.all(10),
       padding: EdgeInsets.all(10),
       child: child,

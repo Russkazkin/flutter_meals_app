@@ -28,6 +28,8 @@ class MealDetail extends StatelessWidget {
             ),
             SectionTitle('Ingredients'),
             BorderedContainer(
+              width: 300,
+              height: 150,
               child: ListView.builder(
                 itemBuilder: (context, index) => Card(
                   color: Theme.of(context).accentColor,
@@ -46,6 +48,8 @@ class MealDetail extends StatelessWidget {
             ),
             SectionTitle('Steps'),
             BorderedContainer(
+              width: 300,
+              height: 250,
               child: ListView.builder(
                 itemBuilder: (context, index) => Column(
                   children: [
