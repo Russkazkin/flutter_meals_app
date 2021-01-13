@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/ui/section_title.dart';
 import '../data/meals.dart';
 
 class MealDetail extends StatelessWidget {
@@ -23,13 +24,7 @@ class MealDetail extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 10),
-            child: Text(
-              'Ingredients',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-          ),
+          SectionTitle('Ingredients'),
           Container(
             decoration: BoxDecoration(
                 color: Colors.white,
