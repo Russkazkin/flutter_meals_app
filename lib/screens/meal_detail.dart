@@ -18,7 +18,7 @@ class MealDetail extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height: 200,
+            height: 300,
             width: double.infinity,
             child: Image.network(
               selectedMeal.imageUrl,
@@ -44,6 +44,17 @@ class MealDetail extends StatelessWidget {
             ),
           ),
           SectionTitle('Steps'),
+          BorderedContainer(
+            child: ListView.builder(
+              itemBuilder: (context, index) => ListTile(
+                leading: CircleAvatar(
+                  child: Text('# ${index + 1}'),
+                ),
+                title: Text(selectedMeal.steps[index]),
+              ),
+              itemCount: selectedMeal.steps.length,
+            ),
+          ),
         ],
       ),
     );
