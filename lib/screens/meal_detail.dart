@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/ui/bordered_container.dart';
 import '../widgets/ui/section_title.dart';
 import '../data/meals.dart';
 
@@ -25,17 +26,7 @@ class MealDetail extends StatelessWidget {
             ),
           ),
           SectionTitle('Ingredients'),
-          Container(
-            decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(
-                  color: Colors.grey,
-                ),
-                borderRadius: BorderRadius.circular(5)),
-            height: 150,
-            width: 300,
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(10),
+          BorderedContainer(
             child: ListView.builder(
               itemBuilder: (context, index) => Card(
                 color: Theme.of(context).accentColor,
@@ -52,6 +43,7 @@ class MealDetail extends StatelessWidget {
               itemCount: selectedMeal.ingredients.length,
             ),
           ),
+          SectionTitle('Steps'),
         ],
       ),
     );
