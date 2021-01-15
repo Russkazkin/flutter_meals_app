@@ -28,6 +28,7 @@ class _TabsState extends State<Tabs> {
       appBar: AppBar(
         title: Text(_screens[_selectedScreenIndex]['title']),
       ),
+      drawer: Drawer(child: Center(child: Text('The Drawer'),),),
       body: _screens[_selectedScreenIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
