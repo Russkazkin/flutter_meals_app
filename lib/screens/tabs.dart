@@ -31,15 +31,21 @@ class _TabsState extends State<Tabs> {
       body: _screens[_selectedScreenIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
+        type: BottomNavigationBarType.shifting,
         backgroundColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Colors.white70,
+        selectedItemColor: Theme.of(context).accentColor,
+        currentIndex: _selectedScreenIndex,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.category_outlined),
             label: 'Categories',
+            backgroundColor: Theme.of(context).primaryColor,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star_border_outlined),
             label: 'Favorites',
+            backgroundColor: Theme.of(context).primaryColor,
           ),
         ],
       ),
