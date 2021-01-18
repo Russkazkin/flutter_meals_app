@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../ui/drawer_list_tile.dart';
+
 class MainDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -24,40 +26,8 @@ class MainDrawer extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          ListTile(
-            leading: Icon(
-              Icons.restaurant,
-              size: 26,
-            ),
-            title: Text(
-              'Meals',
-              style: TextStyle(
-                fontFamily: 'RobotoCondensed',
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            onTap: () {
-
-            },
-          ),
-          ListTile(
-            leading: Icon(
-              Icons.settings,
-              size: 26,
-            ),
-            title: Text(
-              'Settings',
-              style: TextStyle(
-                fontFamily: 'RobotoCondensed',
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            onTap: () {
-
-            },
-          ),
+          DrawerListTile(title: 'Meals', icon: Icons.restaurant,),
+          DrawerListTile(title: 'Settings', icon: Icons.settings,),
         ],
       ),
     );
