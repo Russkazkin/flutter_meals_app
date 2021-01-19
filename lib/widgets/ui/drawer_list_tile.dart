@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class DrawerListTile extends StatelessWidget {
   final String title;
   final IconData icon;
-  Function tapHandler = () => null;
+  final Function tapHandler;
 
   DrawerListTile({this.title, this.icon, this.tapHandler});
 
@@ -22,7 +22,7 @@ class DrawerListTile extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      onTap: () {},
+      onTap: tapHandler,
     );
   }
 }

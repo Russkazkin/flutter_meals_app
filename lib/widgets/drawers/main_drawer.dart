@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../screens/filters.dart';
 import '../ui/drawer_list_tile.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -26,8 +27,16 @@ class MainDrawer extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          DrawerListTile(title: 'Meals', icon: Icons.restaurant,),
-          DrawerListTile(title: 'Settings', icon: Icons.settings,),
+          DrawerListTile(
+            title: 'Meals',
+            icon: Icons.restaurant,
+            tapHandler: () => Navigator.of(context).pushNamed('/'),
+          ),
+          DrawerListTile(
+            title: 'Settings',
+            icon: Icons.settings,
+            tapHandler: () => Navigator.of(context).pushNamed(Filters.route),
+          ),
         ],
       ),
     );
