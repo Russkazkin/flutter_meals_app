@@ -30,12 +30,12 @@ class MainDrawer extends StatelessWidget {
           DrawerListTile(
             title: 'Meals',
             icon: Icons.restaurant,
-            tapHandler: () => Navigator.of(context).pushNamed('/'),
+            tapHandler: () => Navigator.of(context).pushReplacementNamed('/'),
           ),
           DrawerListTile(
             title: 'Settings',
             icon: Icons.settings,
-            tapHandler: () => Navigator.of(context).pushNamed(Filters.route),
+            tapHandler: () => Navigator.of(context).pushReplacementNamed(Filters.route),
           ),
         ],
       ),
