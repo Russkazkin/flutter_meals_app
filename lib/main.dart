@@ -5,6 +5,8 @@ import 'screens/tabs.dart';
 import 'screens/meal_detail.dart';
 import 'screens/category_meals.dart';
 import 'screens/categories.dart';
+import 'models/meal.dart';
+import 'data/meals.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,9 +23,18 @@ class _MyAppState extends State<MyApp> {
     'vegan': false,
   };
 
+  List<Meal> _availableMeals = DUMMY_MEALS;
+
   void _setFilters(Map<String, bool> filterData) {
     setState(() {
       _filters = filterData;
+      _availableMeals = DUMMY_MEALS.where((meal) {
+        if (_filters['gluten'] && !meal.isGlutenFree) { return false; }
+        if (_filters['lactose'] && !meal.isLactoseFree) { return false; }
+        if (_filters['vegetarian'] && !meal.isVegetarian) { return false; }
+        if (_filters['vegan'] && !meal.isVegan) { return false; }
+        return true;
+      }).toList();
     });
   }
   @override
@@ -56,9 +67,9 @@ class _MyAppState extends State<MyApp> {
       ),
       home: Tabs(),
       routes: {
-        CategoryMeals.route: (context) => CategoryMeals(),
+        CategoryMeals.route: (context) => CategoryMeals(availableMeals: _availableMeals),
         MealDetail.route: (context) => MealDetail(),
-        Filters.route: (context) => Filters(saveFilters: _setFilters),
+        Filters.route: (context) => Filters(filters: _filters, saveFilters: _setFilters),
       },
       onUnknownRoute: (settings) =>
           MaterialPageRoute(builder: (context) => Categories()),
