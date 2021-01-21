@@ -3,6 +3,9 @@ import '../widgets/drawers/main_drawer.dart';
 
 class Filters extends StatefulWidget {
   static const route = '/filters';
+  final Function saveFilters;
+
+  const Filters({this.saveFilters});
 
   @override
   _FiltersState createState() => _FiltersState();
@@ -29,6 +32,7 @@ class _FiltersState extends State<Filters> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Filters'),
+        actions: [IconButton(icon: Icon(Icons.save_outlined), onPressed: widget.saveFilters)],
       ),
       drawer: MainDrawer(),
       body: Column(
@@ -67,7 +71,7 @@ class _FiltersState extends State<Filters> {
                   'Vegetarian',
                   'Only include vegetarian meals.',
                   _vegetarian,
-                      (newValue) {
+                  (newValue) {
                     setState(() {
                       _vegetarian = newValue;
                     });

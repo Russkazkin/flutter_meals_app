@@ -8,7 +8,24 @@ import 'screens/categories.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Map<String, bool> _filters = {
+    'gluten': false,
+    'lactose': false,
+    'vegetarian': false,
+    'vegan': false,
+  };
+
+  void _setFilters(Map<String, bool> filterData) {
+    setState(() {
+      _filters = filterData;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,7 +58,7 @@ class MyApp extends StatelessWidget {
       routes: {
         CategoryMeals.route: (context) => CategoryMeals(),
         MealDetail.route: (context) => MealDetail(),
-        Filters.route: (context) => Filters(),
+        Filters.route: (context) => Filters(saveFilters: _setFilters),
       },
       onUnknownRoute: (settings) =>
           MaterialPageRoute(builder: (context) => Categories()),
