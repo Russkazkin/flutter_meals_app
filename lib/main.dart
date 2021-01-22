@@ -38,6 +38,19 @@ class _MyAppState extends State<MyApp> {
       }).toList();
     });
   }
+
+  void _toggleFavorite(String id) {
+    final existingIndex = _favoriteMeals.indexWhere((meal) => meal.id == id);
+    if (existingIndex >= 0) {
+      setState(() {
+        _favoriteMeals.removeAt(existingIndex);
+      });
+    } else {
+      setState(() {
+        _favoriteMeals.add(DUMMY_MEALS.firstWhere((meal) => meal.id == id));
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
