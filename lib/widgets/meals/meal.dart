@@ -52,12 +52,7 @@ class Meal extends StatelessWidget {
         .pushNamed(
       MealDetail.route,
       arguments: id,
-    )
-        .then((result) {
-      if (result != null) {
-        // removeItem(result);
-      }
-    });
+    );
   }
 
   @override
